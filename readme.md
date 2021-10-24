@@ -103,6 +103,8 @@ Cherry is free and open-source test management software developed in Java and Re
 | ------- |
 | notable_entity |
 | notable_id |
+| user_id |
+| text |
 
 ## Contribute
 Cherry is an open source project and we are very happy to accept community contributions. 
