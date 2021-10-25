@@ -7,6 +7,8 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("notes")
 public class NoteController extends BaseController {
@@ -16,9 +18,9 @@ public class NoteController extends BaseController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
-    public NoteDto find(@PathVariable Long id) {
-        return service.find(id);
+    @GetMapping("/{notableEntity}/{notableId}")
+    public List<NoteDto> findAll(@PathVariable String notableEntity, @PathVariable Long notableId) {
+        return service.findAll(notableEntity, notableId);
     }
 
     @ResponseBody

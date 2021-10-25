@@ -8,6 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class NoteService {
     private final NoteRepository repository;
@@ -22,7 +24,7 @@ public class NoteService {
         return mapper.toDTO(repository.save(mapper.toEntity(noteDto)));
     }
 
-    public NoteDto find(Long id) {
-        return mapper.toDTO(repository.getById(id));
+    public List<NoteDto> findAll(String notableEntity, Long notableId) {
+        return mapper.toDTOs(repository.getAllByNotableEntityAndNotableId(notableEntity, notableId));
     }
 }
